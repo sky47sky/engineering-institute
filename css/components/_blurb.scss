@@ -1,0 +1,25 @@
+.blurb {
+  background: $black;
+  background-size: cover;
+  background-position: center;
+  padding: rem-calc(50 0);
+
+  p {
+    font-family: $hfont;
+    color: $white;
+    @include font(35, 44, 400, 0);
+    text-align: center;
+
+    @media screen and (max-width: $mobile1) {
+      @include font(30, 39);
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+  }
+}

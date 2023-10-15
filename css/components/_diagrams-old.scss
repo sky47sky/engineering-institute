@@ -1,0 +1,295 @@
+
+.diagram {
+  padding: rem-calc(80 0);
+
+  &[data-in-view] {
+    .steps-container {
+      .diagram__item {
+        &::before {
+          opacity: 0;
+          right: rem-calc(-44);
+        }
+
+        &::after {
+          opacity: 0;
+          right: rem-calc(-44);
+        }
+
+        .item-container {
+          opacity: 0;
+          transform: translateX(rem-calc(-10));
+        }
+      }
+    }
+
+    .benefits-2 {
+      &>div {
+        opacity: 0;
+      }
+    }
+  
+    &.is-in-view {
+      .steps-container {
+        .diagram__item {
+          &::before {
+            opacity: 1;
+            right: rem-calc(-56);
+          }
+
+          &::after {
+            opacity: 1;
+            right: rem-calc(-56);
+          }
+
+          .item-container {
+            opacity: 1;
+            transform: translateX(rem-calc(0));
+          }
+        }
+      }
+
+      .benefits-2 {
+        &>div {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .diagram__top {
+    text-align: center;
+    margin-bottom: rem-calc(50);
+
+    h2 {
+      margin-bottom: rem-calc(15);
+    }
+  }
+  
+  .steps-container {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    //border: rem-calc(3) solid $gold;
+    border-top-left-radius: rem-calc(8);
+    border-top-right-radius: rem-calc(8);
+    background: linear-gradient(to right, lighten(rgba($black, 1), 0%), lighten(rgba($black, 1), 23%), lighten(rgba($black, 1), 23%), lighten(rgba($black, 1), 0%));
+    z-index: 2;
+
+    .diagram__item {
+      padding: rem-calc(0 30 0 30);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      flex: 0 0 20%;
+      width: 20%;
+
+      &:nth-child(1) {
+        &::before,
+        &::after {
+          transition: .8s .1s ease;
+        }
+
+        .item-container {
+          transition: .5s ease;
+        }
+      }
+
+      &:nth-child(2) {
+        &::before,
+        &::after {
+          transition: .8s .4s ease;
+        }
+
+        .item-container {
+          transition: .8s .2s ease;
+        }
+      }
+
+      &:nth-child(3) {
+        &::before,
+        &::after {
+          transition: .8s .7s ease;
+        }
+
+        .item-container {
+          transition: .8s .5s ease;
+        }
+      }
+
+      &:nth-child(4) {
+        &::before,
+        &::after {
+          transition: .8s .9s ease;
+        }
+
+        .item-container {
+          transition: .8s .8s ease;
+        }
+      }
+
+      &:nth-child(5) {
+        .item-container {
+          transition: .8s 1.1s ease;
+        }
+      }
+
+      &:not(:last-of-type) {
+        &::before {
+          content: '';
+          display: block;
+          height: 100%;
+          width: rem-calc(3);
+          background: lighten($white, 0%);
+          position: absolute;
+          transform: rotate(-25deg) translateY(-100%);
+          top: 45.5%;
+          z-index: 2;
+        }
+
+        &::after {
+          content: '';
+          display: block;
+          height: 100%;
+          width: rem-calc(3);
+          background: lighten($white, 0%);
+          position: absolute;
+          transform: rotate(25deg) translateY(100%);
+          bottom: 45.5%;
+          z-index: 2;
+        }
+      }
+
+      .item-container {
+        .item__number {
+          color: $white;
+          width: rem-calc(26);
+          height: rem-calc(26);
+          border-radius: 100%;
+          border: rem-calc(2) solid $gold;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex: 0 0 rem-calc(26);
+          //box-shadow: 1px 1px 1px rgba(black, 1);
+          position: absolute;
+          top: rem-calc(18);
+          left: rem-calc(0);
+  
+          span {
+            @include font(14, 14, 700, 0);
+            display: block;
+            transform: translateY(rem-calc(1));
+          }
+        }
+  
+        .item__label {
+          @include font(17, 24, 500, 0);
+          //text-transform: uppercase;
+          margin-top: rem-calc(50);
+          color: lighten($white, 0%);
+        }
+  
+        .item__benefit-1 {
+          @include font(13, 21, 300, 0);
+          border-top: rem-calc(1) dotted rgba($gold, .4);
+          margin-top: rem-calc(14);
+          padding-top: rem-calc(14);
+          width: calc(100% - 40px);
+          color: $gold;
+          padding-bottom: rem-calc(20);
+          display: block;
+  
+          .benefit {
+            display: block;
+            font-style: italic;
+            text-transform: uppercase;
+  
+            span {
+              font-weight: 500;
+            }
+  
+            &::before {
+              @extend .fas;
+              content: fa-content($fa-var-check);
+              margin-right: rem-calc(6);
+            }
+          }
+  
+          .link {
+            display: inline-block;
+            margin-left: rem-calc(20);
+            color: $white;
+            position: relative;
+            
+            &::after {
+              position: absolute;
+              bottom: rem-calc(1);
+              left: 0;
+              content: '';
+              display: block;
+              height: rem-calc(1);
+              width: 100%;
+              border-bottom: rem-calc(1) dotted $white;
+              opacity: .3;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .benefits-2 {
+    background: linear-gradient(to right, lighten(rgba($gold, 1), 10%), lighten(rgba($gold, 1), 10%), lighten(rgba($gold, 1), 10%));
+    display: flex;
+    padding: rem-calc(8 0);
+    margin-top: rem-calc(4);
+    border-bottom-left-radius: rem-calc(8);
+    border-bottom-right-radius: rem-calc(8);
+    border-left: rem-calc(1) solid rgba($black, .2);
+    border-bottom: rem-calc(1) solid rgba($black, .2);
+    border-right: rem-calc(1) solid rgba($black, .2);
+    z-index: 1;
+    box-shadow: inset 0 3px 3px rgba(black, .1);
+
+    &>div {
+      flex: 0 0 100%;
+      width: 100%;
+      text-align: center;
+      color: $black;
+      text-transform: uppercase;
+      @include font(13, 21, 300, 0);
+      font-style: italic;
+      transition: 1.6s .6s ease;
+
+      span {
+        font-weight: 500;
+      }
+
+      &::before {
+        @extend .fas;
+        content: fa-content($fa-var-check);
+        margin-right: rem-calc(6);
+      }
+
+      .link {
+        display: inline-block;
+        margin-left: rem-calc(10);
+        color: $black;
+        position: relative;
+        text-transform: none;
+        
+        &::after {
+          position: absolute;
+          bottom: rem-calc(1);
+          left: 0;
+          content: '';
+          display: block;
+          height: rem-calc(1);
+          width: 100%;
+          border-bottom: rem-calc(1) dotted $black;
+          opacity: .3;
+        }
+      }
+    }
+  }
+}

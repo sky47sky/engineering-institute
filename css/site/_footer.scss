@@ -1,0 +1,317 @@
+#footer {
+  background: $black;
+  padding: rem-calc(90 0 0);
+  position: relative;
+
+  &::after {
+    content: '';
+    background: url('../img/big-dog.png');
+    width: rem-calc(800);
+    height: rem-calc(720);
+    position: absolute;
+    z-index: 1;
+    right: rem-calc(100);
+    top: rem-calc(40);
+    opacity: .08;
+    display: block;
+  }
+
+  .footer__top {
+    margin-bottom: rem-calc(20);
+    position: relative;
+    z-index: 2;
+
+    @media screen and (max-width: $mobile1) {
+      display: flex;
+      justify-content: center;
+    }
+
+    .logo {
+      transform: translateX(rem-calc(-5));
+      
+      img {
+        width: rem-calc(400);
+      }
+    }
+  }
+
+  .footer__columns {
+    display: flex;
+    position: relative;
+    z-index: 2;
+
+    @media screen and (max-width: $mobile1) {
+      display: block;
+      text-align: center;
+    }
+
+    .column {
+      @media screen and (max-width: $mobile1) {
+        display: block;
+        margin: 0 auto;
+      }
+
+      &--1 {
+        flex: 1 0 rem-calc(400);
+        margin-right: rem-calc(100);
+
+        @media screen and (max-width: $mobile1) {
+          margin-right: unset;
+        }
+
+        p {
+          margin-bottom: 0;
+          color: $white;
+        }
+        
+        ul {
+          display: flex;
+          align-items: center;
+
+          @media screen and (max-width: $mobile1) {
+            margin-left: unset;
+          }
+    
+          li {
+            align-items: center;
+            position: relative;
+            padding-right: rem-calc(20);
+
+            @media screen and (max-width: $mobile1) {
+              display: block;
+              text-align: center;
+              width: 100%;
+            }
+    
+            &::after {
+              content: '';
+              display: inline-block;
+              background: linear-gradient(to bottom, rgba(#ffffff, 1), rgba(#ffffff, 1));
+              //border-radius: 100%;
+              width: rem-calc(1);
+              height: rem-calc(18);
+              opacity: 1;
+              position: absolute;
+              right: 0;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+    
+            a {
+              color: rgba($white, 1);
+              padding: rem-calc(4 0);
+              display: flex;
+              align-items: center;
+              position: relative;
+              transition: .2s ease;
+              //text-transform: uppercase;
+              white-space: nowrap;
+
+              @media screen and (max-width: $mobile1) {
+                justify-content: center;
+                //transform: translateX(rem-calc(-16));
+              }
+    
+              @include hover {
+                color: rgba($white, .8);
+                text-decoration: none;
+              }
+    
+              &::before {
+                @extend .fas;
+                display: block;
+                color: $white;
+                font-size: rem-calc(18);
+                transform: translateY(rem-calc(2));
+                margin-right: rem-calc(7);
+              }
+    
+              &.phone {
+                &::before {
+                  content: fa-content($fa-var-phone);
+                }
+              }
+      
+              &.email {
+                &::before {
+                  content: fa-content($fa-var-envelope);
+                }
+              }
+    
+              &:not(:last-of-type) {
+                margin-right: rem-calc(20);
+              }
+            }
+    
+            &:not(:last-of-type) {
+              margin-right: rem-calc(20);
+            }
+    
+            &:last-of-type {
+              padding-right: 0;
+    
+              &::after {
+                display: none;
+              }
+    
+              a {
+                padding-right: 0;
+              }
+            }
+          }
+        }
+
+        .socials {
+          display: flex;
+          margin-top: rem-calc(25);
+
+          @media screen and (max-width: $mobile1) {
+            margin-left: unset;
+            justify-content: center;
+            margin-bottom: rem-calc(80);
+          }
+
+          a {
+            &:not(:last-of-type) {
+              margin-right: rem-calc(20);
+            }
+
+            &::before {
+              @extend .fab;
+              font-size: rem-calc(24);
+              color: $white;
+            }
+
+            &.fb {
+              &::before {
+                content: fa-content($fa-var-facebook-f);
+              }
+            }
+
+            &.ig {
+              &::before {
+                content: fa-content($fa-var-instagram);
+              }
+            }
+          }
+        }
+      }
+
+      &--2,
+      &--3 {
+        flex: 1 0 auto;
+        margin-right: rem-calc(90);
+
+        @media screen and (max-width: $desktop-1366) {
+          margin-right: rem-calc(60);
+        }
+
+        @media screen and (max-width: $mobile1) {
+          margin-right: unset;
+          transform: unset;
+        }
+
+        ul {
+          display: block;
+          margin: 0;
+
+          li {
+            padding: rem-calc(0);
+            position: relative;
+            margin-bottom: rem-calc(4);
+
+            @media screen and (max-width: $mobile1) {
+              padding: 0;
+            }
+
+            &::before {
+              @extend .fas;
+              content: fa-content($fa-var-circle);
+              @include font(5, 5, 700, 0);
+              left: rem-calc(0);
+              position: absolute;
+              top: rem-calc(10);
+              color: $white;
+              display: none;
+
+              @media screen and (max-width: $mobile1) {
+                display: none;
+              }
+            }
+
+            a {
+              padding: rem-calc(6 0);
+              color: $white;
+
+              @include hover {
+                color: $white;
+              }
+            }
+          }
+        }
+      }
+
+      &--4 {
+        flex: 0 0 auto;
+
+        @media screen and (max-width: $desktop-1024) {
+          position: absolute;
+          right: 0;
+          top: rem-calc(10);
+        }
+
+        @media screen and (max-width: $mobile1) {
+          position: relative;
+          right: unset;
+          top: unset;
+          margin-top: rem-calc(60);
+          margin-bottom: rem-calc(80);
+        }
+
+        .cta {
+          white-space: nowrap;
+          margin-top: 0;
+
+          @media screen and (max-width: $desktop-1024) {
+            font-size: rem-calc(14) !important;
+            line-height: rem-calc(14) !important;
+            padding: rem-calc(11 20 7) !important;
+          }
+        }
+      }
+    }
+  }
+
+  .footer__bottom {
+    margin-top: rem-calc(100);
+    text-align: center;
+
+    @media screen and (max-width: $mobile1) {
+      margin-left: unset;
+      text-align: center;
+    }
+
+    .sw {
+      padding: rem-calc(50 0);
+      border-top: rem-calc(1) solid rgba($white, .2);
+
+      &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: rem-calc(1);
+        background: darken($white, 15%);
+        position: absolute;
+        top: rem-calc(-2);
+        left: 0;
+      }
+    }
+
+    p {
+      @include font(16, 19, 400, 0);
+      color: rgba($white, .6);
+      margin-bottom: 0;
+      text-transform: uppercase;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+table {
+  margin: rem-calc(80 0);
+  
+  tbody {
+    border: 0;
+  }
+
+  td {
+    background: $white;
+  }
+
+  &.align-center {
+    td {
+      text-align: center;
+    }
+  }
+}

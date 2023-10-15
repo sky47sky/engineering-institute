@@ -1,0 +1,48 @@
+// Default Colors
+$primary-color1: #0a192d;
+$primary-color2: #094b95;
+$text-color: #06111f;
+$text-highlight-bg: #fff000;
+
+$gold: #b79c59;
+$green: #b0be47;
+$green2: #bed637;
+$green3: #d0e6bc;
+$teal: #54c3ba;
+$blue: #6ecddd;
+
+// Colors
+$black: #000;
+$white: #fff;
+$white-dark: #f6f6f6;
+$dblue: #0a192d;
+$blue-light: #097cfd;
+$blue-dark: #06111f;
+$grey: #5b626b;
+$grey-dark: #626262;
+$grey-light: #f6f6f6;
+$grey-light2: #cecece;
+$grey-lighter: #eee;
+$red: #f00;
+$yellow: #ffe028;
+$dark: #06111f;
+$dark2: #06111f;
+$orange: #ff9016;
+
+// Typography
+$hfont: 'Roboto', sans-serif;
+$hont2: 'Roboto', sans-serif;
+$rfont: 'Roboto', sans-serif;
+
+// Breakpoints
+$desktop-1920: 122.5em; // 1960px
+$desktop-1680: 118.125em; // 1890px
+$desktop-1366: 103.125em; // 1650px
+$desktop-1024: 83.5em; // 1336px
+$mobile1: 63.99875em; // 1024px
+$mobile2: 39.99875em; // 640px
+
+// Layout
+$util-nav-height: rem-calc(36);
+$main-nav-height: rem-calc(100);
+$main-nav-height-mobile: rem-calc(64);

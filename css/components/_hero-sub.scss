@@ -1,0 +1,121 @@
+.hero-sub {
+  margin-top: rem-calc(125);
+  position: relative;
+  z-index: 1;
+  background-color: $black;
+  background-position: center rem-calc(-430);
+  box-shadow: 1px 1px 3px rgba(black, .2);
+  background-size: cover;
+
+  @media screen and (max-width: $desktop-1366) {
+    background-position: center rem-calc(-300);
+  }
+
+  @media screen and (max-width: $desktop-1024) {
+    background-position: center rem-calc(-220);
+  }
+
+  @media screen and (max-width: $mobile1) {
+    margin-top: rem-calc(0);
+    background-position: center center;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: $white;
+    background: linear-gradient(-170deg, rgba($gold, 1), rgba($gold, 1), rgba($gold, .7), rgba($black, .7), rgba($black, .4));
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+
+    @media screen and (max-width: $mobile1) {
+      background: linear-gradient(-170deg, rgba($gold, .8), rgba($gold, .8), rgba($gold, .5), rgba($black, .4), rgba($black, .2));
+    }
+  }
+
+  &[data-in-view] {
+    h1 {
+      opacity: 0;
+      transform: translateY(rem-calc(-20));
+    }
+
+    p {
+      opacity: 0;
+      transform: translateY(rem-calc(-20));
+    }
+
+    &.is-in-view {
+      h1 {
+        opacity: 1;
+        transform: translateY(rem-calc(0));
+      }
+
+      p {
+        opacity: 1;
+        transform: translateY(rem-calc(0));
+      }
+    }
+  }
+
+  .hero__content {
+    position: relative;
+    padding: rem-calc(90 0 105);
+
+    @media screen and (max-width: $mobile1) {
+      padding: rem-calc(68 0 80);
+    }
+
+    h1 {
+      @include font(85, 85, 700, 0);
+      text-align: center;
+      //text-transform: uppercase;
+      font-family: $hfont;
+      //text-stroke: 1px rgba($black, 1);
+      //-webkit-text-stroke: 1px rgba($black, 1);
+      text-shadow: 1px 1px 2px rgba($black, 1);
+      margin-bottom: 0;
+      color: $white;
+      transition: transform 1s ease, opacity 1s ease;
+
+      @media screen and (max-width: $mobile1) {
+        @include font(50, 50);
+        text-stroke: 1px rgba($black, 0);
+        -webkit-text-stroke: 1px rgba($black, 0);
+      }
+    }
+
+    p {
+      margin-top: rem-calc(14);
+      text-shadow: 1px 1px 2px rgba($black, 1);
+      display: block;
+      text-align: center;
+      padding: 0 15% 0;
+      @include font(25, 30, 400, 0);
+      //text-transform: uppercase;
+      transition: transform 1s ease, opacity 1s ease;
+      transition-delay: .3s;
+      color: $white;
+
+      @media screen and (max-width: $desktop-1024) {
+        padding: 0;
+      }
+
+      @media screen and (max-width: $mobile1) {
+        @include font(20, 25, 400, 0);
+      }
+
+      &:first-of-type {
+        padding-top: rem-calc(10);
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+}

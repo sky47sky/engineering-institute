@@ -1,0 +1,122 @@
+// font mixin allows for neater css setting font size, weight, line height, and tracking, with one mixin
+// font size, line height, font weight, tracking in 1/1000 em
+@mixin font($font-size: null, $line-height: null, $font-weight: null, $tracking: null) {
+  @if $font-size { font-size: rem-calc($font-size); }
+  @if $line-height { line-height: rem-calc($line-height); }
+  @if $font-weight { font-weight: $font-weight; }
+  @if $tracking { letter-spacing: #{$tracking/1000}em; }
+}
+
+
+
+
+@mixin staggered-transitions($nth: null, $items: null, $initial: null, $step: null) {
+  @for $i from $nth through $items {
+    &:nth-of-type(#{$i}) {
+      transition-delay: #{$initial}ms;
+    }
+    $initial: $initial + $step;
+  }
+}
+
+
+
+
+// mixin for most commonly used background attributes with overrides
+@mixin default-bg($position: center, $size: contain, $repeat: no-repeat) {
+  background-position: $position;
+  background-repeat: $repeat;
+  background-size: $size;
+}
+
+
+
+
+// mixin for allowing pseudo elements to display
+%pseudo {
+  content: '';
+  display: block;
+}
+
+
+
+
+// rem-calc() from Foundation
+
+$rem-base: 16px;
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function convert-to-rem($value, $base-value: $rem-base)  {
+  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+  @return $value;
+}
+
+@function rem-calc($values, $base-value: $rem-base) {
+  $max: length($values);
+  @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+  $remValues: ();
+  @for $i from 1 through $max {
+    $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+  }
+  @return $remValues;
+}
+
+
+
+
+// hoever mixin including accessibility
+
+@mixin hover {
+  &:hover,
+  &:focus,
+  [data-whatintent='mouse'] &:hover,
+  [data-whatinput='initial'] &:focus,
+  [data-whatintent='keyboard'] &:focus {
+    @content;
+  }
+}
+
+
+
+
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+
+
+
+%scrollbar-style {
+  // sass-lint:disable no-vendor-prefixes
+  // always show scrollbars on webkit browsers
+  &::-webkit-scrollbar,
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    height: rem-calc(6);
+    width: rem-calc(6);
+  }
+
+  &::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-track {
+    background: rgba(#000, .1);
+    border-radius: rem-calc(3);
+  }
+
+  &::-webkit-scrollbar-thumb,
+  ::-webkit-scrollbar-thumb {
+    background: rgba(#000, .5);
+    border-radius: rem-calc(3);
+  }
+}
+
+
+
+

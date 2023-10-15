@@ -1,0 +1,149 @@
+.rtf {
+  &::after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+
+  // Headings
+  // -----------
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $black;
+    font-weight: 700;
+    position: relative;
+    font-family: $hfont;
+
+    &:not(:first-child) {
+      margin-top: rem-calc(50);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: rem-calc(23);
+    }
+
+    strong,
+    b {
+      font-weight: 600;
+    }
+  }
+
+  h1 {
+    @include font(50, 56);
+  }
+
+  h2 {
+    @include font(41, 48);
+  }
+
+  h3 {
+    @include font(31, 38);
+  }
+
+  h4 {
+    @include font(29, 36);
+  }
+
+  h5,
+  h6 {
+    @include font(21, 26);
+    text-transform: uppercase;
+  }
+
+  // Blockquotes
+  // -----------
+  blockquote {
+    border-left: rem-calc(10) solid rgba($blue, .8);
+    position: relative;
+    margin: rem-calc(30 20);
+    background: #f7f7f7;
+    padding: 0;
+
+    p {
+      @include font(22, 29, 400);
+      color: $blue;
+      font-style: italic;
+      padding: rem-calc(15) 5% rem-calc(15) 5%;
+      text-align: left;
+      margin-bottom: 0;
+    }
+  }
+
+  // Images
+  // -----------
+  img {
+    &:not(first-child) {
+      margin-top: rem-calc(25);
+    }
+
+    &:not(last-child) {
+      margin-bottom: rem-calc(30);
+    }
+  }
+
+  // Image Captions
+  // -----------
+  figure {
+    position: relative;
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    &:not(first-child) {
+      margin-top: rem-calc(45);
+    }
+
+    &:not(last-child) {
+      margin-bottom: rem-calc(40);
+    }
+
+    figcaption {
+      @include font(12, 15, 400);
+      //background: #eee;
+      padding: rem-calc(5 8);
+      color: $white;
+      margin-top: rem-calc(3);
+    }
+  }
+
+  // Video iframes
+  // -----------
+  .post-responsive-video {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: rem-calc(1200);
+    margin: 0 auto;
+    margin-top: rem-calc(30);
+    margin-bottom: rem-calc(40);
+
+    iframe,
+    object,
+    embed,
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  table {
+    max-width: 100%;
+    margin: rem-calc(30 0);
+  }
+}
